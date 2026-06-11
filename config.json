@@ -1,0 +1,12 @@
+{
+  "vault_path": "G:/내 드라이브/obsidian_logan",
+  "embed_url": "http://127.0.0.1:8787",
+  "tau": 0.45,
+  "tau_r": 0.30,
+  "pre_n": 8,
+  "top_k": 5,
+  "chunk_size": 1000,
+  "chunk_overlap": 150,
+  "min_chunk_chars": 50,
+  "rerank": "on"
+}

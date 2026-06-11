@@ -1,0 +1,12 @@
+{
+  "vault_path": "D:/projects/memo-rag-mcp/test/sample-vault",
+  "embed_url": "http://127.0.0.1:8787",
+  "tau": 0.45,
+  "tau_r": 0.3,
+  "pre_n": 8,
+  "top_k": 5,
+  "chunk_size": 500,
+  "chunk_overlap": 50,
+  "min_chunk_chars": 50,
+  "rerank": "on"
+}

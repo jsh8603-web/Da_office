@@ -1,1 +1,1 @@
-{"SR":{"role":"SR@h2-daoffice","dispatch_ts":1781183132886,"eta_s":0,"done":false}}
+{"SR":{"role":"SR@h2-daoffice","dispatch_ts":1781183132886,"eta_s":0,"done":false},"Worker":{"role":"Worker@h2-daoffice","dispatch_ts":1781185019913,"eta_s":0,"done":false},"Verifier":{"role":"Verifier@h2-daoffice","dispatch_ts":1781185020025,"eta_s":0,"done":false},"watchdog":{"role":"watchdog@h2-daoffice","dispatch_ts":1781185020139,"eta_s":0,"done":false},"Standby1":{"role":"Standby1@h2-daoffice","dispatch_ts":1781185020248,"eta_s":0,"done":false}}
