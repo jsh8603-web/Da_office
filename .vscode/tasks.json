@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "claude-psmux",
+      "type": "shell",
+      "command": "while($true){ & 'C:\\\\Users\\\\jsh86\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\marlocarlo.psmux_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\psmux.exe' has-session -t btn-Da_office 2>$null; if($LASTEXITCODE -eq 0){ & 'C:\\\\Users\\\\jsh86\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\marlocarlo.psmux_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\psmux.exe' attach-session -t btn-Da_office }; Start-Sleep 1 }",
+      "options": {
+        "shell": {
+          "executable": "powershell.exe",
+          "args": [
+            "-NoProfile",
+            "-Command"
+          ]
+        }
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}

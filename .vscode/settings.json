@@ -1,0 +1,4 @@
+{
+  "task.allowAutomaticTasks": "on",
+  "powershell.integratedConsole.startInBackground": true
+}
