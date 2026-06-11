@@ -1,5 +1,5 @@
 {
-  "vault_path": "D:/projects/memo-rag-mcp/test/sample-vault",
+  "vault_path": "D:/projects/Da_office/test/sample-vault",
   "embed_url": "http://127.0.0.1:9999",
   "tau": 0.45,
   "tau_r": 0.30,

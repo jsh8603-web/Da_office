@@ -15,3 +15,12 @@ __pycache__/
 .cache/
 models/
 huggingface/
+
+# local config (copy from config.example.json, set your vault_path)
+config.json
+
+# harness2 runtime + work docs (not part of distributable)
+.harness2/
+.secretary/
+plan.md
+progress.md
