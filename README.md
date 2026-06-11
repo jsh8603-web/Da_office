@@ -5,6 +5,19 @@ Obsidian vault memo-RAG search as an MCP server.
 Local BGE-M3 embeddings via `embed_service.py` — no cloud API, no LanceDB.
 Flat `vectors.jsonl` brute-force search (exact cosine). Source-agnostic adapter design (vault + Teams stub).
 
+## 의도 (왜 만들었나)
+
+회사 환경의 Claude Code에서 **개인 Obsidian vault의 메모를 자연어로 의미 검색**하기 위한 MCP 서버입니다.
+개인 PC에서 운영하던 DA(Decision Asset) 벡터 색인 시스템에서 **색인 + 검색 코어만 떼어내** 회사에서 독립 실행 가능하도록 이식했습니다. 회사 Claude Code가 `search_memo` 도구로 vault를 의미 기반으로 찾아줍니다.
+
+**핵심 설계 결정과 그 이유:**
+
+- **로컬 임베딩 (BGE-M3)** — 회사 메모는 민감 데이터입니다. 클라우드 임베딩 API로 내보내면 외부 전송이 발생하므로, 임베딩을 전부 로컬(`embed_service.py` :8787)에서 수행해 **데이터가 PC를 벗어나지 않습니다.**
+- **LanceDB 제거** — vault 규모(수만 청크 미만)에서는 flat `vectors.jsonl` brute-force(전수 cosine)가 ANN보다 오히려 **정확도 손실이 0**이고, 네이티브 바이너리 설치 부담을 없앱니다. 규모가 커지면 동일한 jsonl 포맷을 그대로 LanceDB로 재이식할 수 있어 lock-in이 없습니다.
+- **source-agnostic 어댑터** — vault·Teams·이메일 등 어떤 소스든 `{id, text, source, path, date, content_hash}`로 정규화하면 동일한 색인/검색 파이프를 재사용합니다. 현재는 vault 구현 + Teams 스텁이며, Teams는 MS Graph 권한 확보 후 어댑터만 추가하면 됩니다.
+- **content_hash delta 색인** — 변경된 청크만 다시 임베딩합니다. CPU BGE-M3로도 대용량 vault 재인덱싱이 실용적입니다.
+- **rerank fail-OPEN** — rerank 서비스가 죽어도 cosine 결과를 반환합니다(명시 검색이므로 무발화보다 결과 우선).
+
 ## Architecture
 
 ```
